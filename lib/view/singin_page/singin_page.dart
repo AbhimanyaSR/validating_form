@@ -9,8 +9,8 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
-  String _email = "";
-  String _password = "";
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _rememberMe = false;
   bool _passwordVisible = false;
 
@@ -34,6 +34,7 @@ class _SignInPageState extends State<SignInPage> {
                   border: Border.all(color: Colors.grey),
                 ),
                 child: TextFormField(
+                  controller: _emailController,
                   decoration: InputDecoration(
                     labelText: "Your Email",
                     border: InputBorder.none,
@@ -47,9 +48,6 @@ class _SignInPageState extends State<SignInPage> {
                     }
                     return null;
                   },
-                  onSaved: (value) {
-                    _email = value!;
-                  },
                 ),
               ),
               SizedBox(height: 16),
@@ -60,6 +58,7 @@ class _SignInPageState extends State<SignInPage> {
                   border: Border.all(color: Colors.grey),
                 ),
                 child: TextFormField(
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     labelText: "Your Password",
                     border: InputBorder.none,
@@ -85,9 +84,6 @@ class _SignInPageState extends State<SignInPage> {
                       return 'Password must be at least 8 characters long';
                     }
                     return null;
-                  },
-                  onSaved: (value) {
-                    _password = value!;
                   },
                 ),
               ),
@@ -119,7 +115,7 @@ class _SignInPageState extends State<SignInPage> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    Navigator.pushNamed(context, '/signup');
+                    Navigator.pushNamed(context, '/home');
                   }
                 },
                 style: ElevatedButton.styleFrom(

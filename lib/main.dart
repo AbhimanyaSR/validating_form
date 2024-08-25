@@ -14,10 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignInPage(),
+      home: SignUpPage(), // Set SignUpPage as the initial page
       routes: {
-        '/signup': (context) => SignUpPage(),
-        '/home': (context) => HomePage(),
+        '/signin': (context) => SignInPage(), // Navigate to SignInPage
+        '/home': (context) =>
+            HomePage(), // Navigate to HomePage after signing in
       },
     );
   }

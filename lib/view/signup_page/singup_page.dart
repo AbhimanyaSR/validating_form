@@ -30,7 +30,6 @@ class _SignUpPageState extends State<SignUpPage> {
           key: _formKey,
           child: Column(
             children: [
-              // Email Field with Box
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -55,8 +54,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(height: 16),
-
-              // Password Field with Box
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -94,8 +91,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               SizedBox(height: 16),
-
-              // Confirm Password Field with Box
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -138,7 +133,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    Navigator.pushNamed(context, '/home');
+                    Navigator.pushNamed(context, '/signin');
                   }
                 },
                 style: ElevatedButton.styleFrom(
